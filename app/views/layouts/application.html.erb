@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CustomersApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+   <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+
+  </head>
+<body>
+  
+
+    
+    <!-- HTML code from Bootply.com editor -->
+    
+
+        
+        <div class="navbar navbar-fixed-top header">
+ 	<div class="col-md-12">
+        <div class="navbar-header">
+          
+          <a href="#" class="navbar-brand">Customers</a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse1">
+          <i class="glyphicon glyphicon-search"></i>
+          </button>
+      
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse1">
+          <!-- <form class="navbar-form pull-left">
+              <div class="input-group" style="max-width:470px;">
+                <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                <div class="input-group-btn">
+                  <button class="btn btn-default btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+              </div>
+          </form> -->
+
+          <ul class="nav navbar-nav navbar-right" remote="true" id="counter">
+            <li><h2><%= Customer.count %></a></h2></li>
+            <li><a href="/customers" class=></a></li>
+            <li><img src="http://i1350.photobucket.com/albums/p769/piklowry/1400456969__users_zps0efd798c.png" class="shopping-cart"></i></li>
+             <li><a href="/customers" class=></a></li>
+               <script>
+
+  
+$(document).ready(function () {
+  
+    setInterval(refreshPartial, 3000)
+
+});
+
+function refreshPartial() {
+  $.ajax({
+    url: "refresh_counter";
+ })
+}
+
+  </script>
+            
+           </ul>
+        </div>	
+     </div>	
+</div>
+
+     </div>	
+</div>
+
+<!--main-->
+
+<div class="container" id="main">
+   <div class="row">
+    <br>
+    <button id="opener" data-toggle="modal" data-target="my-modal">Create / Edit </button>
+    <br>
+    <br>
+
+
+
+
+     
+
+
+          <%= yield %>
+
+    
+  
+  </div><!--/main-->
+
+    
+
+
+
+  <script>
+  $(function() {
+    $( "#dialog" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "Transfer",
+        duration: 1000
+      }
+    });
+ 
+    $( "#opener" ).click(function() {
+      $( "#dialog" ).dialog( "open" );
+    });
+  });
+  </script>
+
+  
+
+
+
+
+    
+ 
+              
+        
+       
+
+        
+        <!-- JavaScript jQuery code from Bootply.com editor 
+        
+       
+    </body>
+</html>

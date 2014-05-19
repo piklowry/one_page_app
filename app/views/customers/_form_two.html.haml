@@ -1,0 +1,41 @@
+/ about modal
+#aboutModal.modal.fade{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h2.text-center About
+      .modal-body
+        .col-md-12.text-center
+          %a{:href => "http://bootply.com/90113"} This Bootstrap Template
+          %br
+            was made with
+            %i.glyphicon.glyphicon-heart
+            by
+            %a{:href => "http://bootply.com/templates"} Bootply
+            %br
+              %br
+                %a{:href => "https://github.com/iatek/bootstrap-google-plus"} GitHub Fork
+      .modal-footer
+        %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} OK
+
+
+= @customers
+
+%br
+- @customers.each do |customer|
+  .col-sm-3.col-xs-6
+    .panel.panel-default
+      .panel-thumbnail
+      = image_tag customer.customer_pic.url ,:style => "max-width: 100%"
+      .panel-body
+
+
+= image_tag @customers.customer_pic.url
+      
+    
+
+
+
+
+

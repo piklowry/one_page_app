@@ -1,0 +1,29 @@
+.row-4
+  - @customers.each do |customer|
+    .col-md-4.col-sm-8
+      .panel.panel-default
+        .panel-heading 
+          %a.pull-right
+          %h4 
+            = customer.name
+        .panel-body
+          .well.well-sm
+            .media
+              %a.thumbnail.pull-left{:href => "/customers/:id/download_customer_pic"}
+                %img.media-object
+                  = image_tag customer.customer_pic.url ,:style => "max-width:100%"
+              .media-body
+                %h4.media-heading 
+                %p
+                  %span.label.label-info
+                    = customer.email
+                  %br
+                  %br
+                  %span.label.label-primary
+                    = customer.telephone
+                    %br
+                    %br
+                  = link_to "Edit", edit_customer_path(customer), :id => 'opener', :class => "btn", :remote => true, "data-toggle" => "modal", "data-target" => "my-modal"
+                  = link_to "Remove", customer, :remote => true, :confirm => 'Are you sure?', :method => :delete
+                  
+
