@@ -1,10 +1,10 @@
-.row-4
+.row-4#something
   - @customers.each do |customer|
     .col-md-4.col-sm-8
       .panel.panel-default
         .panel-heading 
           %a.pull-right
-          %h4 
+          %h4
             = customer.name
         .panel-body
           .well.well-sm
@@ -25,5 +25,7 @@
                     %br
                   = link_to "Edit", edit_customer_path(customer), :id => 'opener', :class => "btn", :remote => true, "data-toggle" => "modal", "data-target" => "my-modal"
                   = link_to "Remove", customer, :remote => true, :confirm => 'Are you sure?', :method => :delete
-                  
+
+
+
 

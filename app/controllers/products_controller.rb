@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
+    render @product
     # @products = Product.all(:limit => 10)
   end
   
@@ -15,10 +16,9 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      flash[:notice] = "Successfully created product."
-      redirect_to @product
+      render @product 
     else
-      render :action => 'new'
+      render nothing: true
     end
   end
   

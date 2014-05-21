@@ -1,17 +1,8 @@
 Rails.application.routes.draw do
 
-  #  devise_for :users 
-
-   # resources :users
-
-      resources :products do
-        collection do
-          get :list
-        end
-      end
-      
-
-  resources :customers do
+  resources :products 
+     
+    resources :customers do
     collection do
       get :results
       get :search

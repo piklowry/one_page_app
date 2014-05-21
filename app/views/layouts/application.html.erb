@@ -6,20 +6,17 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
   <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script>
 
 
 
-  </head>
+</script>
+</head>
 <body>
   
-
-    
-    <!-- HTML code from Bootply.com editor -->
-    
-
-        
+      
         <div class="navbar navbar-fixed-top header">
  	<div class="col-md-12">
         <div class="navbar-header">
@@ -42,25 +39,12 @@
 
           <ul class="nav navbar-nav navbar-right" remote="true" id="counter">
             <li><h2><%= Customer.count %></a></h2></li>
-            <li><a href="/customers" class=></a></li>
+            <li><a href="/customers" class="categoryone"></a></li>
             <li><img src="http://i1350.photobucket.com/albums/p769/piklowry/1400456969__users_zps0efd798c.png" class="shopping-cart"></i></li>
              <li><a href="/customers" class=></a></li>
-               <script>
 
-  
-$(document).ready(function () {
-  
-    setInterval(refreshPartial, 3000)
 
-});
 
-function refreshPartial() {
-  $.ajax({
-    url: "refresh_counter";
- })
-}
-
-  </script>
             
            </ul>
         </div>	
@@ -75,17 +59,12 @@ function refreshPartial() {
 <div class="container" id="main">
    <div class="row">
     <br>
-    <button id="opener" data-toggle="modal" data-target="my-modal">Create / Edit </button>
+    <button id="opener" data-toggle="modal" data-target="my-modal">Create/Edit </button>
     <br>
     <br>
+    
 
-
-
-
-     
-
-
-          <%= yield %>
+   <%= yield %>
 
     
   

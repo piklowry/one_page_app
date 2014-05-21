@@ -1,32 +1,57 @@
 class CustomersController < ApplicationController
-  # before_filter :authenticate_user!
-  # before_action :mail, :send_to_everyone
-  respond_to :js
-  before_filter :load
 
-  def load
-    @customers = Customer.all
-    @customer = Customer.new
+  # before_filter :load
+
+  # def load
+  #   @customers = Customer.all
+  #   @customer = Customer.new
+
+
+  # end
+
+  def index
+   @customer = Customer.all
+   render @customer
   end
 
-  def index 
-  end
+  # def create
+    
+  #   @customer = Customer.new(customer_params)
+  #   if @customer.save
+  #     render @customer 
+  #   else
+  #     render nothing: true
+  #   end
+  # end
+ 
 
-
-  
   def create
+    
     @customer = Customer.new(customer_params)
     if @customer.save
-      success_note
-      # flash.now[:notice] = "Successfully created post."
-      @customers = Customer.all
+    respond_to do |format|
+      format.js  { render json: @customer }
+      format.html { redirect_to customers_path }
+    end
+  else 
+    respond_to do |format|
+      format.js 
+      format.html { redirect_to customers_path, notice: "update failed." }
     end
   end
+end
 
-  
   def edit
     @customer = Customer.find(params[:id])
-    # render :action => "index"
+  end
+
+  def show
+    @customer = Customer.all
+  end
+
+  def show
+    # @customer = Customer.all
+    @customer = Customer.find(params[:id])
   end
 
 
@@ -44,9 +69,8 @@ class CustomersController < ApplicationController
       
 	    if @customer.destroy
 	    respond_to do |format|
-        flash.now[:notice] = "Successfully created post."
 	      format.html { redirect_to customers_path }
-	      format.js
+	      format.js { render json: @customer }
 	      @customers = Customer.all
 	    end
 	    else 
@@ -66,14 +90,6 @@ class CustomersController < ApplicationController
 
   def results
   end 
-
-  def refresh_counter
-    Customer.count
-  respond_to do |format|
-    format.js
-  end
-end
-
 
 
   def success_note
